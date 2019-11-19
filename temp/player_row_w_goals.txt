@@ -1,0 +1,26 @@
+class Row extends React.Component {
+  render () {
+    return (
+          <li><a href="#"><strong>{this.props.sname}, {this.props.fname},</strong> {this.props.number}, {this.props.goals}</a></li>
+    );
+  }
+}
+
+
+
+class Players extends React.Component {
+  render () {  
+    // Loop through the list of players and create array of Row components
+    let Rows = this.props.players.map(function(player, index) {
+      return (
+        <Row key={index} sname={player.p_sname} fname={player.p_fname} number={player.p_number} goals={player.p_goals} />
+      )
+    });
+    
+    return (
+        <ul>
+          {Rows}
+        </ul>
+    );
+  }
+}
